@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["NNN", "NBN", "NNN"],
+  "key": {
+    "N": "minecraft:netherite_ingot",
+    "B": "simple-backpacks:diamond_backpack"
+  },
+  "result": {
+    "id": "simple-backpacks:netherite_backpack",
+    "count": 1
+  }
+}

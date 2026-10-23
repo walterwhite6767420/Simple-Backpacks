@@ -1,0 +1,40 @@
+
+{
+	"schemaVersion": 1,
+	"id": "simple-backpacks",
+	"version": "${version}",
+	"name": "Simple Backpacks",
+	"description": "Tiered backpacks with persistent storage and a dedicated equipment slot.",
+	"authors": ["VYRL"],
+	"license": "All Rights Reserved",
+	"icon": "assets/simple-backpacks/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"simplebackpacks.modi.SimpleBackpacks"
+		],
+		"client": [
+			"simplebackpacks.modi.client.SimpleBackpacksClient"
+		]
+	},
+	"mixins": [
+		"simple-backpacks.mixins.json",
+		{
+			"config": "simple-backpacks.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*",
+		"menukit": ">=7.3.0 <8.0.0",
+		"slotkit": ">=2.0.0 <3.0.0"
+	},
+	"custom": {
+		"slotkit": {
+			"bothSides": "required"
+		}
+	}
+}

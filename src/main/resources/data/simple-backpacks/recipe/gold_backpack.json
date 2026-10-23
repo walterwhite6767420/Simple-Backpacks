@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["GGG", "GBG", "GGG"],
+  "key": {
+    "G": "minecraft:gold_ingot",
+    "B": "simple-backpacks:iron_backpack"
+  },
+  "result": {
+    "id": "simple-backpacks:gold_backpack",
+    "count": 1
+  }
+}

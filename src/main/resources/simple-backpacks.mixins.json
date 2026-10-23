@@ -1,0 +1,17 @@
+
+{
+	"required": true,
+	"package": "simplebackpacks.modi.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"mixins": [
+		"ExampleMixin",
+		"BackpackInventoryMenuMixin",
+		"BackpackUpgradeRecipeMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

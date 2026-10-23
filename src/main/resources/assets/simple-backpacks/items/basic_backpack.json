@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "simple-backpacks:item/basic_backpack"
+  }
+}

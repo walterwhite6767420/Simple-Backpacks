@@ -1,0 +1,10 @@
+
+{
+  "item.simple-backpacks.basic_backpack": "Basic Backpack",
+  "item.simple-backpacks.iron_backpack": "Iron Backpack",
+  "item.simple-backpacks.gold_backpack": "Gold Backpack",
+  "item.simple-backpacks.diamond_backpack": "Diamond Backpack",
+  "item.simple-backpacks.netherite_backpack": "Netherite Backpack",
+  "key.simple-backpacks.open_backpack": "Open Backpack",
+  "key.category.simple-backpacks.backpack": "Simple Backpacks"
+}
