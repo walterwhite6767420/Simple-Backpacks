@@ -3,6 +3,7 @@ package simplebackpacks.modi;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.util.Prediction;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -43,11 +44,26 @@ public final class BackpackContainer extends SimpleContainer {
             contents.copyInto(loaded);
         }
 
+        boolean removedBackpack = false;
         for (int i = 0; i < size; i++) {
+            ItemStack stack = loaded.get(i);
+            if (stack.getItem() instanceof BackpackItem) {
+                loaded.set(i, ItemStack.EMPTY);
+                removedBackpack = true;
+
+                if (!owner.level().isClientSide()
+                        && !owner.getInventory().add(stack)) {
+                    owner.drop(stack, false, Prediction.SERVER_ONLY);
+                }
+            }
+
             super.setItem(i, loaded.get(i));
         }
 
         ready = true;
+        if (removedBackpack && !owner.level().isClientSide()) {
+            saveContents();
+        }
     }
 
     public ItemStack getBackpackStack() {
@@ -111,6 +127,25 @@ public final class BackpackContainer extends SimpleContainer {
     @Override
     public boolean canPlaceItem(int slot, ItemStack stack) {
         return !(stack.getItem() instanceof BackpackItem);
+    }
+
+    @Override
+    public void setItem(int slot, ItemStack stack) {
+        if (canPlaceItem(slot, stack)) {
+            super.setItem(slot, stack);
+        }
+    }
+
+    @Override
+    public ItemStack addItem(ItemStack stack) {
+        return canPlaceItem(0, stack)
+                ? super.addItem(stack)
+                : stack;
+    }
+
+    @Override
+    public boolean canAddItem(ItemStack stack) {
+        return canPlaceItem(0, stack) && super.canAddItem(stack);
     }
 
     @Override

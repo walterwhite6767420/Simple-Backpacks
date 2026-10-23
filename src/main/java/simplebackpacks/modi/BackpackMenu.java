@@ -57,7 +57,12 @@ public final class BackpackMenu extends AbstractContainerMenu {
                         index,
                         8 + column * 18,
                         18 + row * 18
-                ));
+                ) {
+                    @Override
+                    public boolean mayPlace(ItemStack stack) {
+                        return container.canPlaceItem(index, stack);
+                    }
+                });
             }
         }
 
